@@ -8,9 +8,12 @@
     "tdd": "mocha -w --opts test/mocha.opts"
   },
   "babel": {
-    "presets": ["react-native"]
+    "presets": [
+      "react-native"
+    ]
   },
   "dependencies": {
+    "apphub": "^0.5.1",
     "babel-eslint": "^6.0.0",
     "eslint": "^2.3.0",
     "eslint-config-airbnb": "^6.0.2",

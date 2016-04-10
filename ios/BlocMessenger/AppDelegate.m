@@ -6,15 +6,18 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  */
+#import "AppHub.h"
 
 #import "AppDelegate.h"
 
 #import "RCTRootView.h"
 
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [AppHub setApplicationID:@"3c4clWn8Fvpa40cfPass"];
   NSURL *jsCodeLocation;
 
   /**
@@ -40,6 +43,17 @@
    */
 
 //   jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+  
+  /**
+   * OPTION 3 - AppHub
+   *
+   * Load cached code and images from AppHub.
+   *
+   */
+  
+  AHBuild *build = [[AppHub buildManager] currentBuild];
+  jsCodeLocation = [build.bundle URLForResource:@"main"
+                                  withExtension:@"jsbundle"];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"BlocMessenger"
